@@ -5,14 +5,24 @@ export function Background() {
     Sand: '#fceeb5',
     Peach: '#ee786e',
   }
-  const [color, setColor] = useState('#a2ccb6')
+  // document.body.style.background = colors.Sea
+  const [color, setColor] = useState(colors.Sea)
+  const [value, setValue] = useState('Sea')
+
+  function handleChange(e) {
+    setValue(e.target.value)
+    setColor(colors[value])
+    document.body.style.background = color
+  }
+
   return (
     <div>
-      <selector>
-        <option>Sea</option>
-        <option>Sand</option>
-        <option>Peach</option>
-      </selector>
+      <select value={value} onChange={handleChange}>
+        <option value="Sea">Sea</option>
+        <option value="Sand">Sand</option>
+        <option value="Peach">Peach</option>
+      </select>
+      <p>{color}</p>
     </div>
   )
 }
