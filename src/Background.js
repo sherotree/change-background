@@ -7,7 +7,6 @@ export function Background() {
     Peach: '#ee786e',
   }
 
-  const [color, setColor] = useState(colors.Sea)
   const [value, setValue] = useState('Sea')
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export function Background() {
         <option value="Sand">Sand</option>
         <option value="Peach">Peach</option>
       </select>
-      <p className="colorName">{color}</p>
+      <p className="colorName">{colors[value]}</p>
     </div>
   )
 }
