@@ -1,0 +1,14 @@
+.wrapper {
+  margin: 200px auto;
+}
+
+.selector {
+  font-size: 50px;
+}
+
+.colorName {
+  color: white;
+  font-size: 50px;
+  margin-top: 30px;
+  font-weight: bolder;
+}

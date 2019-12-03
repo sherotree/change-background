@@ -1,28 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import './Background.css'
 export function Background() {
   const colors = {
     Sea: '#a2ccb6',
     Sand: '#fceeb5',
     Peach: '#ee786e',
   }
-  // document.body.style.background = colors.Sea
+
   const [color, setColor] = useState(colors.Sea)
   const [value, setValue] = useState('Sea')
 
+  useEffect(() => {
+    document.body.style.background = colors.Sea
+  }, [])
+
   function handleChange(e) {
     setValue(e.target.value)
-    setColor(colors[value])
-    document.body.style.background = color
+    document.body.style.background = colors[e.target.value]
   }
 
   return (
-    <div>
-      <select value={value} onChange={handleChange}>
+    <div className="wrapper">
+      <select className="selector" value={value} onChange={handleChange}>
         <option value="Sea">Sea</option>
         <option value="Sand">Sand</option>
         <option value="Peach">Peach</option>
       </select>
-      <p>{color}</p>
+      <p className="colorName">{color}</p>
     </div>
   )
 }
